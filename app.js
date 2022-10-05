@@ -1,11 +1,20 @@
+//Code! Programming with p5.js
+
+let circleX = 100;
+
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(400, 300);
+  background(100, 100, 100);
 }
 
 function draw() {
-  background(220,0,200);
+  stroke(0)
+  line(0, 130, 400, 130)
+  rectMode(CENTER);
+  fill(255, 255, 255);
+  rect(200, 150, 100);
+  //stroke(0);
+  //line(0, 0, 250, 250);
 
-  noStroke();
-  fill(255);
-  ellipse(200, 150, 75, 75);
+
 }
