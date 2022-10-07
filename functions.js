@@ -1,26 +1,20 @@
-let y = 50;
-let speed = 15;
-let half = 2;
-
+//ellipse to square
 function setup() {
-  createCanvas(windowWidth, windowHeight)
+  createCanvas(windowWidth, windowHeight);
+
 }
 
 function draw() {
-  background(50)
+  let d = 100;
+  background(50);
   stroke(255);
   strokeWeight(4);
   noFill();
-  ellipse(50, y, 100, 100);
+  ellipse(100, 100, d, d);
+  convert(d);
+}
 
-  if (y > windowHeight - 50 || y < 49) {
-    speed = (speed * -1);
-   }
-  if (speed < 0 && y < (windowHeight/2)) {
-    speed = speed * -1;
-  };
-  y = y + speed;
-
-
-
+function convert(d) {
+  a = Math.sqrt(3.14*((d/2)*(d/2)))
+  rect(500, 100, a, a);
 }
