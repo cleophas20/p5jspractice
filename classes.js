@@ -34,15 +34,15 @@ class Bubble {
   rollover(px, py) {
     let d = dist(px, py, this.x, this.y);
     if (d < this.z/2) {
-      this.brightness = 255;
+      return;
     } else {
-      this.brightness = 0;
+      return;
     }
   }
   show() {
     stroke(255);
     strokeWeight(4);
-    fill(this.brightness, 125);
+    noFill()
     ellipse(this.x, this.y, this.z);
   }
 
