@@ -1,4 +1,5 @@
 let bubbles = [];
+//let pinky;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -6,18 +7,25 @@ function setup() {
   for (i = 0; i < 5; i++) {
     let x = random(windowWidth);
     let y = random(windowHeight);
-    let r = random(100, 300);
+    let r = random(50, 100);
     bubbles[i] = new Circle(x, y, r);
   }
+//  pinky = new Circle(random(windowWidth), random(windowHeight), 50);
 }
 
 function draw() {
   for (bubble of bubbles){
-      bubble.show();
-    if (bubble.intersect(mouseX, mouseY)) {
-      bubble.brightness = 255;
-    } else bubble.brightness = 0;
+    bubble.show();
+    for (other of bubbles) {
+      if (bubble !== other && bubble.intersect(other)) {
+        bubble.changeColor(255);
+      // } else {
+      //     bubble.changeColor(0);
+      // }
+      }
+    }
   }
+//  pinky.show();
 }
 
 
@@ -36,8 +44,12 @@ class Circle {
     ellipse(this.x, this.y, this.r * 2);
   }
 
-  intersect(px, py) {
-    let d = dist(px, py, this.x, this.y)
-    return d < this.r;
+  intersect(other) {
+    let d = dist(this.x, this.y, other.x, other.y)
+    return (d < this.r + other.r);
+  }
+
+  changeColor(bright) {
+    this.brightness = bright
   }
 }
