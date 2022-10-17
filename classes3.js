@@ -14,9 +14,9 @@ function setup() {
 }
 
 function draw() {
-  for (bubble of bubbles){
+  for (let bubble of bubbles){
     bubble.show();
-    for (other of bubbles) {
+    for (let other of bubbles) {
       if (bubble !== other && bubble.intersect(other)) {
         bubble.changeColor(255);
       // } else {

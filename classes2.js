@@ -26,10 +26,10 @@ function draw() {
   for (shape of shapes) {
     shape.show();
     }
-    // if (pinky.intersect(shape)) {
-    //   console.log('HELP!')
-    //   shape.changeColor(255);
-    // } shape.changeColor(0);
+    if (pinky.intersect(shape)) {
+      console.log('HELP!')
+      shape.changeColor(255);
+    } shape.changeColor(0);
 }
 
 class Circle {
@@ -48,7 +48,6 @@ class Circle {
   changeColor(bright) {
     this.brightness = bright;
   }
-
 
   show() {
     stroke(255);
